@@ -11,6 +11,9 @@ body, html{
 #largercontainer{
     display:flex;
     align-items: center;
+    height:100vh;
+
+    position: relative;
 }
 
 #container{
@@ -63,9 +66,10 @@ position:relative;
 #vscont{
     position:absolute;
     top:50%;
-    left:48.15%;
-    transform: translateX(-50%);
-    transform: translateY(-50%);
+    left:50%;
+
+    transform: translate(-50%, -50%); 
+
     z-index: 10;
     display:flex;
     justify-content: center;
@@ -77,4 +81,34 @@ color:black;
 background-color: white;
 border-radius: 50px;
 padding:10px;
+}
+
+#char1winrate, #char2winrate{
+display: none;
+}
+
+#nextcont{
+    position:absolute;
+    top:70%;
+    left:50%;
+
+    transform: translate(-50%, -50%); 
+    
+    z-index: 10;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#next{
+    background-color: darkgreen;
+    border-radius:20px;
+    padding: 10px;
+    display:none;
+}
+#next:hover{
+    filter:brightness(0.5);
+    cursor:pointer;
+}
+#next:active{
+    filter:brightness(0.8);
 }
