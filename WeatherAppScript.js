@@ -20,6 +20,9 @@ function properString(str){
     if(str === 'Renata Glasc'){
         return ('Renata')
     }
+    if(str === 'Dr. Mundo'){
+        return('DrMundo')
+    }
 if (str.includes("'")){
     str = str.replace(/'/g, '');
     str = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -28,6 +31,9 @@ return str.replace(/\s+/g, '');
 }
 
 let winner;
+let score = 0;
+let highscore = 0;
+document.getElementById('Score').textContent = `Score: ${score}                 High Score: ${highscore}`
 
 function setScene(){
 fetch('http://127.0.0.1:5000/api/tierlist')
@@ -47,6 +53,8 @@ fetch('http://127.0.0.1:5000/api/tierlist')
         const charTwoImg = document.getElementById('ImageTwo')
         const charTwoImgName = properString(data[randTwo].name)
         charTwoImg.src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${charTwoImgName}_0.jpg`
+
+        
 
         oneWin = data[randOne].win_rate.replace('%', '')
         twoWin = data[randTwo].win_rate.replace('%', '')
@@ -83,6 +91,19 @@ fetch('http://127.0.0.1:5000/api/tierlist')
         nextButton.style.display='block'
         charOneWin.style.display = 'block'
         charTwoWin.style.display= 'block'
+
+        if(winner === 1){
+            score++
+            checkHighScore()
+            document.getElementById('Score').textContent = `Score: ${score}                 High Score: ${highscore}`
+
+        } else {
+            score = 0
+            checkHighScore()
+            document.getElementById('Score').textContent = `Score: ${score}                 High Score: ${highscore}`
+
+        }
+       
         results()
     }
     function onButton2Click(){
@@ -92,6 +113,17 @@ fetch('http://127.0.0.1:5000/api/tierlist')
         charOneWin.style.display = 'block'
         charTwoWin.style.display= 'block'
         nextButton.style.display='block'
+        if(winner === 2){
+            score++
+            checkHighScore()
+            document.getElementById('Score').textContent = `Score: ${score}                 High Score: ${highscore}`
+
+        } else {
+            score = 0
+            checkHighScore()
+            document.getElementById('Score').textContent = `Score: ${score}                 High Score: ${highscore}`
+
+        }
         results()
     }
 
@@ -109,6 +141,12 @@ fetch('http://127.0.0.1:5000/api/tierlist')
         
         setScene()
         
+    }
+
+    function checkHighScore(){
+        if (score >= highscore){
+            highscore = score
+        }
     }
 
 

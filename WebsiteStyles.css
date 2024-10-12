@@ -8,11 +8,35 @@ body, html{
 }
 
 
+    #header {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.8); 
+        color: white;
+        z-index:0; 
+    }
+#Score{
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white;
+    z-index:0;
+}
+
+
+
 #largercontainer{
     display:flex;
     align-items: center;
     height:100vh;
-
     position: relative;
 }
 
