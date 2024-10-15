@@ -36,7 +36,7 @@ let highscore = 0;
 document.getElementById('Score').textContent = `Score: ${score}                 High Score: ${highscore}`
 
 function setScene(){
-fetch('http://127.0.0.1:5000/api/tierlist')
+fetch('https://lol-higher-or-lower.onrender.com/api/tierlist')
     .then(response => response.json())
     .then(data => {
         const randOne = Math.floor(Math.random() * data.length)
